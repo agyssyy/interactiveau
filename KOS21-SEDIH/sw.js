@@ -1,5 +1,5 @@
 /* KOSONG - service worker (network first, cache fallback) */
-const CACHE = 'kosong-v3';
+const CACHE = 'kosong-v4';
 const CORE = ['./index.html', './style.css', './app.js', './data.js', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {

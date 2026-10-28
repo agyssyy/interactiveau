@@ -399,8 +399,8 @@ const S = {
   photoMgr: false, studioUnlocked: false,
   ask: null, storyStarted: false,
   flags: new Set(), unlocked: new Set(),
-  unread: { group: 3 },
-  lastTimes: { group: '2019', martin: '2019', james: '2019', juhoon: '2019', seonghyeon: '2019', self: '—' },
+  unread: { group: 1, martin: 1, james: 1 },
+  lastTimes: { group: '20.52', martin: '20.58', james: '20.56', juhoon: '2019', seonghyeon: '2019', self: '—' },
   endings: (store.get('kosong.endings', []) || []).filter(k => !!ENDINGS[k]),
   sound: store.get('kosong.sound', true),
   typing: {},
@@ -420,17 +420,23 @@ function seed() {
         { who: 'juhoon', text: 'pintunya susah dikunci. tarik dulu baru puter.' },
         { who: 'me', text: 'oke bang makasih' },
         { who: 'seonghyeon', text: 'kalau ada yang pulang malam, sisain lampu koridor.' },
-        { who: 'james', text: 'siap bang' }
+        { who: 'james', text: 'siap bang' },
+        { sys: 'Sabtu, 27 Februari 2027 · 20.52' },
+        { who: 'martin', text: 'malam terakhir. jangan tidur dulu.' }
       ]
     },
     martin: { id: 'martin', name: 'Martin', msgs: [
       { who: 'martin', text: 'kono, kalau ada apa-apa ketuk kamar gue. gue nggak tidur cepat.' },
-      { who: 'me', text: 'iya bang' }
+      { who: 'me', text: 'iya bang' },
+      { sys: 'Sabtu, 27 Februari 2027 · 20.58' },
+      { who: 'martin', text: 'kunci rumah dibalikin besok jam 10.' }
     ] },
     james: { id: 'james', name: 'James', msgs: [
       { who: 'james', text: 'nanti gue beliin sikat gigi. kamu yang mana?' },
       { who: 'me', text: 'yang biru' },
-      { who: 'james', text: 'oke. gue beli enam.' }
+      { who: 'james', text: 'oke. gue beli enam.' },
+      { sys: 'Sabtu, 27 Februari 2027 · 20.56' },
+      { who: 'james', text: 'nasi ayam lima bungkus. jangan telat.' }
     ] },
     juhoon: { id: 'juhoon', name: 'Juhoon', msgs: [
       { who: 'juhoon', text: 'kono, besok gue foto kita di depan rolling door.' },
@@ -520,7 +526,7 @@ function unlockPhone() {
   rain(true);
   setTimeout(() => chime(), 300);
   if (!S.storyStarted) {
-    setTimeout(() => notify('KOS 21', '5 anggota · 3 pesan belum dibaca', 'group', 'group'), 2600);
+    setTimeout(() => notify('KOS 21', '5 anggota · 1 pesan baru', 'group', 'group'), 2600);
   }
 }
 (function buildPad() {
